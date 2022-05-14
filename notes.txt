@@ -1,0 +1,69 @@
+What are design patterns?
+    Common architectural approaches that people have observed throughout the years and decided to 
+    catalogue them and give them names so that we can study and talk about them. 
+
+Universally relevant:
+    - So popular that they became internalized in some languages. 
+    For example, the observer pattern got internalized in C# as the event keyword. 
+    Cpp did not internalize any design patterns. But we have:
+    - Libraries
+    - Your own code. 
+
+SOLID Design Principles:
+    - Creational
+    - Structural 
+    - Behavioral
+
+The Patterns
+    Gang of four book. 
+    1. Creational
+        - Builder
+        - Factories
+            . Abstract Factor
+            . Factory Method
+        - Prototype
+        - Singleton
+
+    2. Structural
+        - Adapter
+        - Bridge
+        - Composite
+        - Decorator
+        - Facade
+        - Flyweight
+        - Proxy
+
+    3. Behavioral
+        - Chain of responsibility
+        - Command
+        - Interpreter
+        - Iterator
+        - Mediator
+        - Memento
+        - Observer
+        - State
+        - Strategy
+        - Template Method
+        - Visitor
+
+
+
+
+
+Summary:
+    1. Single Responsibility Principle:
+        - A class should only have one reason to change. 
+        - Seperation of concerns - different classes handling different, intependent tasks / problems. 
+    
+    2. Open-Closed Principle
+        - Classes should be open for extension but closed for modification. 
+
+    3. Liskov Substitution Principle
+        - You should be able to substitute a base type for a subtype. 
+
+    4. Interface Segregation Principle
+        - Don't put too much into an interface; split into separate interfaces
+        - YAGNI: You Ain't Going to Need It
+
+    5. Dependency Inversion Principle
+        - High-level modules should not depend upon low-level ones; use abstractions. 

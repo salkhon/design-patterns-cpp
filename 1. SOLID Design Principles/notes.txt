@@ -1,0 +1,47 @@
+A set of design principles, introduced by Robert C Martin (Uncle Bob). 
+
+- These patterns are frequently referred in modern esign pattern literature. 
+
+1. Single Responsibility Principle
+    A class should have a single reason to change. 
+    Or, a class should have a primary responsibility, it should not have other responsibilities. 
+
+    Concerns of Journal and Persistence need to be separate. 
+
+2. Open Close Principle
+    Your system should be open to extension (by inheritance). But CLOSED for modification. 
+    Cannot modify deployed code.
+
+    The goal of open close principle - avoid having to jump into code you've already written. 
+
+    * Open for extension means, you can always make an extension by inheriting. 
+    * Closed for modification, already written class interface should not change. 
+
+    The Specification pattern was used to incorporate Open close principle on the example. 
+
+3. Liskov Substitution
+    Goal: Specify that, subtypes should be immediately substitutable for their base types.
+
+    You should be able to substitute the subtype, whereever the super type is being used. 
+
+4. Interface Segregation Principle:
+    Don't createa interfaces that are too large. 
+    Break up your interfaces. Make them small. 
+
+5. Dependency Inversion
+    A. High-level modules should not depend on low-level modules. 
+        Both should depend on abstractions. 
+    B. Abstractions should not depend on details. 
+        Details should depend on abstraction.
+
+    What do we mean by abstractions?
+        Interfaces, Base Classes. 
+        Instead of depending on a concrete type, you want to as general as possible. 
+
+        You should take in an interface that gives you the necessary functionality but you don't want to 
+        depend on the conrete type more than you need to because then you'd be depending on the 
+        implementation detail. 
+
+        Takeaway: You want to have dependencies on abstractions. Dependencies on interfaces
+        rather than conrete implementations. You don't want to depend on other class' details. 
+        
