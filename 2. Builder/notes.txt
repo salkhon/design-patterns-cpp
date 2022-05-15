@@ -1,0 +1,45 @@
+Gamma Categorization
+    Design patterns are typically split into three categories. 
+    This is called Gamme Categorization after Erich Gamma one of the gang of four authors.
+
+    1. Creatal Patterns
+        Deal with the creatoin (construction) of objects
+        - Explicit (constructor) vs implicit (DI, reflection etc). 
+        - Wholesale (single statement) vs pievewise (step by step). 
+    
+    2. Structural Patterns
+        Concerned with the structure (eg class members)
+        Many patterns are wrappers that mimic the underlying class' interface. 
+        Stress the importance of good API design. 
+
+    3. Behavioral Patterns 
+        They are all different; no central theme. 
+
+    
+Builder:
+    - Some objects are simple and can be created in a single contructor call
+    - Other objects require a lot of ceremony to create. 
+    For examples, string from different pieces - string builder. Lets you construct an object 
+    piece by piece. 
+    - Having an object with 10 constructor arguments is not productive.
+    - Builder provides an API for constructing an object step by step. 
+
+    When piecewise object construction is complicated, provide an API for doing it succintly. 
+
+    Creating an object with a dedicated special component, different from the actual object created. 
+    That separate dedicated component for creation has special functions to help the process of 
+    creation. 
+
+
+    Fluent Builder:
+        Return the constructed object on building methods. 
+
+    Groovy-Style Builder:
+        Nested instantiation reflecting the nested structure of the object. 
+
+    Builder Facade:
+        Different parts of the object using different builders. All subtypes of a central
+        builder. They refer to one object hosted on the central builder. That has methods
+        to traverse from one builder to the other. 
+
+    

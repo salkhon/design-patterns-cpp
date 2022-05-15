@@ -50,7 +50,7 @@ The Patterns
 
 
 
-Summary:
+1. Summary:
     1. Single Responsibility Principle:
         - A class should only have one reason to change. 
         - Seperation of concerns - different classes handling different, intependent tasks / problems. 
@@ -66,4 +66,13 @@ Summary:
         - YAGNI: You Ain't Going to Need It
 
     5. Dependency Inversion Principle
-        - High-level modules should not depend upon low-level ones; use abstractions. 
+        - High-level modules should not depend upon low-level ones; use abstractions.
+
+
+2. Summary:
+    - A builder is a separate component for an object. 
+    - Can either give builedr a constructor or return it via a status function from the class you are
+    trying to build. 
+    - To make builder fluet, return this. 
+    - Different facets of an object can be built with different builders working in tandem 
+    via a base class. 
