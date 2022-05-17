@@ -42,4 +42,9 @@ Builder:
         builder. They refer to one object hosted on the central builder. That has methods
         to traverse from one builder to the other. 
 
-    
+Factory:
+    - A factory method isa static method that creates objects
+    - A factory can take care of object creation (single responsibility pattern)
+    - A factory can be external or reside inside the object as an inner class. 
+    Nested allows to preserve open-close principle. 
+    - Hierarchies of factories can be used to create related objects. 

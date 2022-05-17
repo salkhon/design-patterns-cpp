@@ -1,0 +1,49 @@
+Factory Method and Abstract Factory
+    Motivation:
+    - Object creation logic becomes to convoluted. 
+    - Constructor is not descriptive
+        . Name mandated by name of containing type
+        . Cannot overload with same sets of args with different names
+        . Can turn into "optional parameter hell"
+    - Object creation (non piecewise, unlike Builder) can be outsourced. (Single call instantiation)
+        . A separate function (Factory Method)
+        . That may exist in a separate class (Factory)
+        . Can create hierarchy of factories with Abstract Factories
+
+Factory Method:
+    Method inside the original class to initialize the object. Make the constructor private, so 
+    user's use the factory method. 
+
+Factory
+    A component responsible solely for the wholesale (not piecewise) creation of objects. 
+    (Piecewise is left to the builder)
+    - When the factory methods are in a seaprate class, then that is a Factory. 
+
+    * This requires an ugly hack. Either break Open-Close principle to let Factory access the 
+    private constructor of the original class. 
+    Or, make every thing public in the original class. 
+
+The user has no way of understanding that they are supposed to use a Factory, if every content of 
+Point is made public.
+There is no obvious link between Factory and the original class. 
+
+** As a solution, often the Factory is inside the original class, nested. This also allows us to 
+avoid the Open Close Principle. 
+
+This is called the Inner Factory pattern. 
+
+
+Abstract Factory:
+    Polymorphic factory. 
+
+    So you have a family of products, and you have a corresponding family of factories. 
+    Because they all share a common interface "Product" and "ProductFactory" -
+    you can map them together in another class. From string to the factory which constructs according
+    to your string instruction. When you invoke the factory by key on map, you construct the object via 
+    the factory and return it. 
+
+    Family of class and family of factory. 
+
+    
+
+ 
