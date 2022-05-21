@@ -48,3 +48,10 @@ Factory:
     - A factory can be external or reside inside the object as an inner class. 
     Nested allows to preserve open-close principle. 
     - Hierarchies of factories can be used to create related objects. 
+
+Prototype:
+    - To implement a prototype, partially construct an object and store it somewhere. 
+    - Clone the prototype
+        . Implement your own deep copy. or, 
+        . Serialize and deserialize, they traverse the entire object graph. 
+    - Customize the resulting instance. 

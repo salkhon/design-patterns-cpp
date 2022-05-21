@@ -1,0 +1,43 @@
+- Complicated objects aren't designed from scratch. 
+They are copies, reiterated, slightly changed. 
+
+- An existing (partially or fully constructed) design is a Prototype. 
+- We make a copy (clone) the prototype and customize it. 
+    - Requires "deep copy" support. 
+- We make the cloning convenient (via a Factory)
+
+Prototype:
+    A partially or fully initialized object that you copy (clone) and make use of. 
+
+    Runs into shallow copy issue when there are ptr attrs. 
+
+Prototype Factory:
+    Clients of your API won't have a ready made object to copy from. So you need to somehow give
+    them a prototype. 
+
+    - Make a global variable. With default args. 
+        Not explicit enough to let people know, that this is allowed. 
+
+        What if you want to contraint people to only create instances from a prototype so that they
+        cannot make individual instances. Maybe you don't want to expose the constructors.
+        You need a prototype factory. 
+    
+The inconvenince of Prototype is you have to deep copy and implement the copy contructor. 
+You have to implement the object copyong yourself. 
+
+If your object has value attrs, then it's1 step, but if you have pointer attrs, you have to nest
+your implementation. This is where there is no magic bullet. 
+
+You could Serialize - Deserialize. 
+
+Prototype via Serialization:
+    Serialize: You want to store all the aspects of an object. 
+    Deserialize: You want to restore all the aspects of an object. 
+
+    You can use boost serialization. 
+
+    We serialize because we can kill 3 birds with 1 stone. 
+        1. Get serialization
+        2. Get cloning functionality, by getting a sort of AUTOMATIC implementation of the prototype
+        design pattern. 
+        3. It enforces the nested serialization method implementation. 
