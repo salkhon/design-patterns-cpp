@@ -1,0 +1,71 @@
+"Whwn discussing which patterns to drop, we found that we still love them all. (Not really - I'm in favor
+of dropping Singleton. Its use is almost always a design smell.)"
+    - Erich Gamma
+
+Motivation:
+    - For some components it only makes sense to have one in the system. 
+        . Database repo
+        . Object factory
+    - Eg. the constructor call is EXPENSIVE. 
+        - We do it once
+    - We provide anyone creating additional copies
+    - Need to take care of lazy instantiation and thread safety. 
+
+    A component which is instantiated only once. 
+
+
+Singleton:
+    Just because constructor is made private does not mean people can't create another instance. 
+    If they get one instance, they can use the copy constructor or the copy assignment - 
+    YOU WANT TO DELETE THEM. 
+
+    If we want to test some Research class or function that works on the data, our implementation
+    is strongly coupled with the Singleton db instance. So proper unit test for the research 
+    class or function is not writable. This breaks the unit test ideal. 
+
+The problem:
+    The problem we're encountering in the research class SingletonRecordFinder is to do with the 
+    fact that we have a dependency on the details of how a database provides it's data. We're depending
+    on the singleton database, and the fact that it's a singleton. 
+
+    We could use a little bit of dependency injection. A point where you can insert the dependedncy 
+    instead of the actual object. We want to have a dummy db instaed of the real db. 
+
+    So we give the singleton database an interface. 
+
+So Singleton database itself is not a bad idea. It's bad only if you have a HARD dependency on it. 
+
+If you just use it's getter. 
+
+- If you have your test in terms of a dependency that you can substitute for something that's more 
+testable then everything's fine. 
+    - What we did to accomodate this:
+        . Extracted an interface from the Singleton. 
+        . Then we implemented this interface for our test, as a dummy singleton. With some predictable
+        behavior. 
+
+        So we end up with some unit test, whereas we previously had integration test. 
+
+
+Singleton through 
+    Instead of explicitly implement a singleton by hinding your constructors and having tht get_instance()
+    methods - you can rely on an inversion of control container used in a typical dependency injection
+    framework - to make a singleton for you. 
+
+    What happens in IContainers is - you allow yourself to configure different componenets with different 
+    lifetime. 
+        Singleton is nothing more that a specification of lifetime. 
+    
+
+Monostate Design pattern:
+    All attrs static, so all instances deal with the same attrs. 
+    Bad idea. 
+
+
+Multiton Design Pattern:
+    Variation of the singleton, but not directly linked. 
+
+    We want to build a construct - which is a singleton of various sub divisions. 
+
+    An enum associated with an instance. Several enums associated with several different instances. 
+    But one enum, is associated with only one instance, that is returned. 
