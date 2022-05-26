@@ -1,0 +1,51 @@
+- Bridge prevents a "Cartesia product" complexity explosion
+- Example:
+    . Base class ThreadScheduler. 
+    . Can be preemptive or cooperative
+    . Can run on Windows or Unix
+    . End up with a 2x2 scenario: WindowsPTS, UnixPTS, WindowsCTS, UnixCTS
+
+- Bridge pattern avoids the entity explosion. 
+
+- You don't completely depend on inheritance. 
+
+- There may be a PlatformScheduler interface which is implemented by WindwosSched, UnixSched. 
+- You also inherit from either Preemptive thread scheduler or Cooperative thread scheduler. 
+
+- You rely on inheritance + aggregation. 
+
+Bridge:
+    A mechanism that decouples an interface (hierarchy) from an implementation (hierarchy). 
+    Some inheritace and some aggregation. 
+
+    PIMPL Idiom:
+        The implementation details are not inside the class declaration, but defined on a separate class. 
+
+        Why?
+            Hiding the inner mechanics. Remember- you have to ship the header. 
+            You have to give the consumer of the API at least the header file.
+
+            Suppose if you had a lot of private implementation detail methods on your class signature, 
+            you would have secrete functions that does something. You are still giving them to the 
+            consumer of the API. Whoever is using your header file can go into the header file and they
+            would be able to see all these secret functions, you might not want to expose. You might have 
+            trade secrets in there. 
+
+        You put all the private implementation detail in the Impl. 
+
+        - All of the details can go into the .cpp file. You don't have to ship your cpp file to the client. 
+
+        Hiding implementation from the class signature. 
+
+        - PIMPL allows you to change the internal implementation wiwthout changing the surface API!!
+        As a result you don't introduce binary incompatibilities. If you are adding private members, 
+        you'd have to recompile the whole thing. 
+
+    Bridge:
+        In a cartesian product like situation one aspect of the entities might be more explicit to the client
+        naturally than the other. So we form the class hierarchy (inheritance) on that aspect, and aggregate
+        the other aspect inside that main inheritance hierarchy, as an interface. That internal implementation
+        is one level hidden away.  
+
+        So the client works with the main line of hierarchy, while they pass in the bridge to the 
+        other aspect into the main hierarchy. 
